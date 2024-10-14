@@ -1,0 +1,78 @@
+{
+  "empresas": [
+    {
+      "nome": "Petrobras",
+      "cnpj": "12345678000100",
+      "setor": "Energia",
+      "acoes": [
+        { "ticker": "PETR4", "valorAtual": 35.5 },
+        { "ticker": "PETR3", "valorAtual": 36.2 }
+      ]
+    },
+    {
+      "nome": "Vale",
+      "cnpj": "98765432000100",
+      "setor": "Mineração",
+      "acoes": [{ "ticker": "VALE3", "valorAtual": 68.9 }]
+    },
+    {
+      "nome": "Itaú Unibanco",
+      "cnpj": "11223344000155",
+      "setor": "Financeiro",
+      "acoes": [{ "ticker": "ITUB4", "valorAtual": 27.3 }]
+    },
+    {
+      "nome": "Magazine Luiza",
+      "cnpj": "44556677000199",
+      "setor": "Varejo",
+      "acoes": [{ "ticker": "MGLU3", "valorAtual": 4.8 }]
+    },
+    {
+      "nome": "Ambev",
+      "cnpj": "99887766000122",
+      "setor": "Bebidas",
+      "acoes": [{ "ticker": "ABEV3", "valorAtual": 15.2 }]
+    }
+  ],
+  "usuarios": [
+    {
+      "login": "user1",
+      "nome": "Carlos Silva",
+      "cpf": "11122233344",
+      "senha": "senha123",
+      "email": "carlos@email.com",
+      "carteiras": [
+        {
+          "nome": "Carteira Principal",
+          "ativos": [
+            { "ticker": "PETR4", "quantidade": 100, "valorMedio": 32.0 },
+            { "ticker": "VALE3", "quantidade": 50, "valorMedio": 65.0 }
+          ]
+        },
+        {
+          "nome": "Agressiva",
+          "ativos": [
+            { "ticker": "MGLU3", "quantidade": 300, "valorMedio": 5.0 },
+            { "ticker": "ABEV3", "quantidade": 150, "valorMedio": 14.5 }
+          ]
+        }
+      ]
+    },
+    {
+      "login": "user2",
+      "nome": "Ana Pereira",
+      "cpf": "55566677788",
+      "senha": "senha456",
+      "email": "ana@email.com",
+      "carteiras": [
+        {
+          "nome": "Investimentos Longo Prazo",
+          "ativos": [
+            { "ticker": "ITUB4", "quantidade": 200, "valorMedio": 25.0 },
+            { "ticker": "PETR3", "quantidade": 50, "valorMedio": 35.5 }
+          ]
+        }
+      ]
+    }
+  ]
+}

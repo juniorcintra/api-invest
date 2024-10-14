@@ -6,7 +6,6 @@ import { jwtConstants } from './constants';
 import { AuthController } from './auth.controller';
 import { PrismaModule } from 'src/database/prisma.module';
 import { AuthGuard } from './auth.guard';
-// import { SubscriptionService } from 'src/subscription/subscription.service';
 
 @Module({
   imports: [
@@ -21,7 +20,6 @@ import { AuthGuard } from './auth.guard';
     AuthService,
     JwtService,
     { provide: 'APP_GUARD', useClass: AuthGuard },
-    // SubscriptionService,
   ],
   exports: [AuthService, JwtService],
 })

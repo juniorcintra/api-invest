@@ -14,13 +14,17 @@ datasource db {
 }
 
 model User {
-  id           Int           @id @default(autoincrement())
-  login        String?       @unique
-  senha        String?
-  email        String?       @unique
-  ativo        Boolean?      @default(true)
-  createdAt    DateTime?     @default(now())
-  updatedAt    DateTime?     @updatedAt
+  id        Int       @id @default(autoincrement())
+  login     String?   @unique
+  nome      String?
+  cpf       String?   @unique
+  senha     String?
+  email     String?   @unique
+  ativo     Boolean?  @default(true)
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+
+  carteiras Carteira[]
 
   @@map("user")
 }
@@ -31,4 +35,57 @@ model BlackListToken {
   createdAt     DateTime? @default(now())
 
   @@map("blackListToken")
+}
+
+model Empresa {
+  id        Int       @id @default(autoincrement())
+  nome      String    @unique
+  cnpj      String    @unique
+  setor     String
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+
+  acoes Acoes[]
+
+  @@map("empresa")
+}
+
+model Acoes {
+  id         Int       @id @default(autoincrement())
+  ticker     String    @unique
+  valorAtual Float
+  empresaId  Int
+  createdAt  DateTime? @default(now())
+  updatedAt  DateTime? @updatedAt
+
+  empresa Empresa @relation(fields: [empresaId], references: [id])
+  ativos  Ativo[]
+
+  @@map("acoes")
+}
+
+model Carteira {
+  id        Int       @id @default(autoincrement())
+  nome      String
+  userId    Int
+  createdAt DateTime? @default(now())
+  updatedAt DateTime? @updatedAt
+
+  user   User    @relation(fields: [userId], references: [id])
+  ativos Ativo[]
+
+  @@map("carteira")
+}
+
+model Ativo {
+  id         Int   @id @default(autoincrement())
+  quantidade Int
+  valorMedio Float
+  carteiraId Int
+  acaoId     Int
+
+  carteira Carteira @relation(fields: [carteiraId], references: [id])
+  acao     Acoes    @relation(fields: [acaoId], references: [id])
+
+  @@map("ativo")
 }

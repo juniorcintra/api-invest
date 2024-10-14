@@ -21,7 +21,7 @@ export class AuthController {
 
   @Post('refresh')
   @HttpCode(HttpStatus.OK)
-  @Public() // Endpoint público
+  @Public() // não precisa de token
   async refresh(@Body('refresh_token') refresh_token: string) {
     return this.authService.refreshAccessToken(refresh_token);
   }
