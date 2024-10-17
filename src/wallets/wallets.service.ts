@@ -38,8 +38,8 @@ export class WalletsService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} wallet`;
+  async getActions() {
+    return await this.prisma.acoes.findMany({ include: { empresa: true } });
   }
 
   update(id: number, updateWalletDto: UpdateWalletDto) {

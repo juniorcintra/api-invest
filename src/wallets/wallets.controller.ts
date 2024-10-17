@@ -28,11 +28,16 @@ export class WalletsController {
     name: 'userId',
     required: true,
     type: String,
-    description: 'Id do Profissional, dono dos agendamentos.',
+    description: 'Id do Usuario, dono das carteiras de investimentos.',
   })
   findAll(@Query() req: RequestParams) {
     const { userId } = req;
     return this.walletsService.findAllByUser(Number(userId));
+  }
+
+  @Get('getActions')
+  getActions() {
+    return this.walletsService.getActions();
   }
 
   @Patch(':id')
