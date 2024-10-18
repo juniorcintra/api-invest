@@ -66,7 +66,7 @@ export class WalletsService {
     });
   }
 
-  remove(id: number) {
-    return this.prisma.carteira.delete({ where: { id: Number(id) } });
+  async remove(id: number) {
+    return await this.prisma.carteira.delete({ where: { id: Number(id) } });
   }
 }

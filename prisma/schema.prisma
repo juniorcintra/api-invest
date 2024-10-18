@@ -84,7 +84,7 @@ model Ativo {
   carteiraId Int
   acaoId     Int
 
-  carteira Carteira @relation(fields: [carteiraId], references: [id])
+  carteira Carteira @relation(fields: [carteiraId], onDelete: Cascade, references: [id])
   acao     Acoes    @relation(fields: [acaoId], references: [id])
 
   @@map("ativo")
